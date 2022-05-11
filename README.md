@@ -1,4 +1,6 @@
 # DSA (Data Structures and Algorithms)
 Implement Data Structures and Algorithms
 
-## Sorting
+## Algorithms
+1. Sorting
+    - Selection

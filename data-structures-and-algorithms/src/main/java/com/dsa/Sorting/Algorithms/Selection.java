@@ -1,12 +1,9 @@
-package Sorting.Algorithms;
-
-import Sorting.SortingInterface.SortingAlgorithm;
+package com.dsa.Sorting.Algorithms;
 
 public class Selection implements SortingAlgorithm {
- 
+
     @Override
     public void sort(int[] arr) {
-        // TODO Auto-generated method stub
         for (int i = 0; i < arr.length; ++i) {
             int indexOfMinimumElement = i;
 
@@ -19,12 +16,12 @@ public class Selection implements SortingAlgorithm {
 
             /**
              * swap elements
-                int temp = arr[indexOfMinimumElement];
-                arr[indexOfMinimumElement] = arr[i];
-                arr[i] = temp;
+             * int temp = arr[indexOfMinimumElement];
+             * arr[indexOfMinimumElement] = arr[i];
+             * arr[i] = temp;
              */
 
-             // shift elements to maintain integrity of position of duplicate elements
+            // shift elements to maintain integrity of position of duplicate elements
             int temp = arr[indexOfMinimumElement];
             while (indexOfMinimumElement > i) {
                 arr[indexOfMinimumElement] = arr[--indexOfMinimumElement];

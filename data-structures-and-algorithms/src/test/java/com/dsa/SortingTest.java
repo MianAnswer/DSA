@@ -29,4 +29,15 @@ public class SortingTest {
 
         assertArrayEquals(sortedCollectionArr, selectionArr);
     }
+
+    @Test
+    public void insertionSort() {
+        SortingAlgorithm sortingAlgorithm = new Insertion();
+
+        int[] selectionArr = Arrays.copyOf(arr, arr.length);
+
+        sortingAlgorithm.sort(selectionArr);
+
+        assertArrayEquals(sortedCollectionArr, selectionArr);
+    }
 }

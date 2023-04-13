@@ -2,9 +2,8 @@ package com.dsa;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import java.util.ArrayList;
 import org.junit.Before;
-
 import com.dsa.DataStructures.Implementations.BinarySearchTree;
 import com.dsa.DataStructures.Helpers.TreeNode;
 
@@ -85,23 +84,41 @@ public class BinarySearchTreeTest {
 
     @Test
     public void testInorder() {
-        int[] expected = { 5, 7, 10, 13, 15, 20 };
-        int[] result = bst.inorder();
-        assertArrayEquals(expected, result);
+        ArrayList<Integer> expected = new ArrayList<Integer>();
+        expected.add(5);
+        expected.add(7);
+        expected.add(10);
+        expected.add(13);
+        expected.add(15);
+        expected.add(20);
+        ArrayList<Integer> result = bst.inorder();
+        assertArrayEquals(expected.toArray(), result.toArray());
     }
 
     @Test
     public void testPostorder() {
-        int[] expected = { 7, 5, 13, 20, 15, 10 };
-        int[] result = bst.postorder();
-        assertArrayEquals(expected, result);
+        ArrayList<Integer> expected = new ArrayList<Integer>();
+        expected.add(7);
+        expected.add(5);
+        expected.add(13);
+        expected.add(20);
+        expected.add(15);
+        expected.add(10);
+        ArrayList<Integer> result = bst.postorder();
+        assertArrayEquals(expected.toArray(), result.toArray());
     }
 
     @Test
     public void testPreorder() {
-        int[] expected = { 10, 5, 7, 15, 13, 20 };
-        int[] result = bst.preorder();
-        assertArrayEquals(expected, result);
+        ArrayList<Integer> expected = new ArrayList<Integer>();
+        expected.add(10);
+        expected.add(5);
+        expected.add(7);
+        expected.add(15);
+        expected.add(13);
+        expected.add(20);
+        ArrayList<Integer> result = bst.preorder();
+        assertArrayEquals(expected.toArray(), result.toArray());
     }
 
 }

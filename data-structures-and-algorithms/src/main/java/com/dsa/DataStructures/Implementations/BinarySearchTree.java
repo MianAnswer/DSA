@@ -1,5 +1,6 @@
 package com.dsa.DataStructures.Implementations;
 
+import java.util.ArrayList;
 import com.dsa.DataStructures.Helpers.TreeNode;
 
 /**
@@ -91,15 +92,63 @@ public class BinarySearchTree {
         }
     }
 
-    public int[] inorder() {
-        return new int[] {};
+    public ArrayList<Integer> inorder() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        inorder(list, this.root);
+        return list;
     }
 
-    public int[] preorder() {
-        return new int[] {};
+    private void inorder(ArrayList<Integer> list, TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.left != null) {
+            inorder(list, node.left);
+        }
+        list.add(node.val);
+        if (node.right != null) {
+            inorder(list, node.right);
+        }
     }
 
-    public int[] postorder() {
-        return new int[] {};
+    public ArrayList<Integer> preorder() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        preorder(list, this.root);
+        return list;
+    }
+
+    private void preorder(ArrayList<Integer> list, TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        list.add(node.val);
+        if (node.left != null) {
+            preorder(list, node.left);
+        }
+        if (node.right != null) {
+            preorder(list, node.right);
+        }
+    }
+
+    public ArrayList<Integer> postorder() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        postorder(list, this.root);
+        return list;
+    }
+
+    private void postorder(ArrayList<Integer> list, TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.left != null) {
+            postorder(list, node.left);
+        }
+        if (node.right != null) {
+            postorder(list, node.right);
+        }
+        list.add(node.val);
     }
 }

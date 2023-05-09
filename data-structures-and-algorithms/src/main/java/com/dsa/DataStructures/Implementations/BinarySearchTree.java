@@ -27,7 +27,7 @@ public class BinarySearchTree {
         this.root = insert(this.root, val);
     }
 
-    private static TreeNode insert(TreeNode node, int val) {
+    private TreeNode insert(TreeNode node, int val) {
         if (node == null) {
             return new TreeNode(val);
         }
@@ -45,7 +45,7 @@ public class BinarySearchTree {
         this.root = delete(this.root, val);
     }
 
-    private static TreeNode minValTreeNode(TreeNode node) {
+    private TreeNode minValTreeNode(TreeNode node) {
         while (node.left != null) {
             node = node.left;
         }
@@ -53,7 +53,7 @@ public class BinarySearchTree {
         return node;
     }
 
-    private static TreeNode delete(TreeNode node, int val) {
+    private TreeNode delete(TreeNode node, int val) {
         if (node == null) {
             return null;
         }

@@ -50,6 +50,60 @@ public class AVLTree {
         return node;
     }
 
+    public void delete(int val) {
+        this.root = delete(this.root, val);
+    }
+
+    private TreeNode minValTreeNode(TreeNode node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+
+        return node;
+    }
+
+    private TreeNode delete(TreeNode node, int val) {
+        if (node == null) {
+            return null;
+        }
+        if (node.val < val) {
+            node.right = delete(node.right, val);
+        } else if (node.val > val) {
+            node.left = delete(node.left, val);
+        } else if (node.val == val) {
+            if (node.left == null && node.right == null) {
+                return null;
+            } else if (node.right == null) {
+                node = delete(node.left, val);
+            } else if (node.left == null) {
+                node = delete(node.right, val);
+            } else {
+                TreeNode temp = minValTreeNode(node.right);
+                node.val = temp.val;
+                node.right = delete(node.right, temp.val);
+            }
+        }
+
+        adjustHeight(node);
+
+        int loadBalance = getLoadBalance(node);
+        if (loadBalance == 2) {
+            if (getLoadBalance(node.left) > -1) {
+                node = rightRotation(node);
+            } else {
+                node = leftRightRotation(node);
+            }
+        } else if (loadBalance == -2) {
+            if (getLoadBalance(node.right) > -1) {
+                node = rightLeftRotation(node);
+            } else {
+                node = leftRotation(node);
+            }
+        }
+
+        return node;
+    }
+
     private TreeNode leftRotation(TreeNode node) {
         TreeNode temp = node.right;
         node.right = temp.left;

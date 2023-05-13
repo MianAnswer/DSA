@@ -90,4 +90,37 @@ public class AVLTreeTest {
         assertArrayEquals(expected.toArray(), result.toArray());
     }
 
+    @Test
+    public void testDelete() {
+        avl.delete(7);
+        assertEquals(8, avl.getRoot().val);
+        avl.delete(8);
+        assertEquals(9, avl.getRoot().val);
+        avl.delete(9);
+        assertEquals(10, avl.getRoot().val);
+        avl.delete(10);
+        assertEquals(11, avl.getRoot().val);
+        avl.delete(12);
+        assertEquals(14, avl.getRoot().right.val);
+        avl.delete(11);
+        assertEquals(13, avl.getRoot().val);
+        avl.delete(4);
+        assertEquals(5, avl.getRoot().left.val);
+        avl.delete(5);
+        assertEquals(2, avl.getRoot().left.val);
+        avl.delete(2);
+        assertEquals(3, avl.getRoot().left.val);
+        avl.delete(13);
+        assertEquals(14, avl.getRoot().val);
+        avl.delete(14);
+        assertEquals(3, avl.getRoot().val);
+        avl.delete(3);
+        assertEquals(6, avl.getRoot().val);
+        avl.delete(6);
+        assertEquals(15, avl.getRoot().val);
+        avl.delete(15);
+        assertEquals(1, avl.getRoot().val);
+        avl.delete(1);
+        assertEquals(null, avl.getRoot());
+    }
 }

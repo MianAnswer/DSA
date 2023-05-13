@@ -71,7 +71,7 @@ public class BinarySearchTree {
             } else {
                 TreeNode temp = minValTreeNode(node.right);
                 node.val = temp.val;
-                delete(node.right, temp.val);
+                node.right = delete(node.right, temp.val);
             }
         }
 
